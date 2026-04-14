@@ -24,10 +24,10 @@ let _cache: IconData[] | null = null;
 export async function getIcons(): Promise<IconData[]> {
   if (_cache) return _cache;
 
-  const icons = Object.values(si).filter(
-    (v): v is IconData =>
+  const icons = (Object.values(si).filter(
+    (v): v is any =>
       v && typeof v === "object" && "slug" in v && "svg" in v
-  );
+  ) as unknown[]) as IconData[];
 
   _cache = icons;
   return _cache;
