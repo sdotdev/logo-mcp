@@ -1,232 +1,297 @@
+import Link from "next/link";
+
+const DOCS_SECTIONS = [
+  { id: "overview", label: "Overview" },
+  { id: "setup", label: "Setup" },
+  { id: "tools", label: "Tools" },
+  { id: "deploy", label: "Deploy" },
+  { id: "legal", label: "Legal" },
+];
+
 export default function DocsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-950 to-black text-white">
-      <div className="mx-auto max-w-4xl px-6 py-12">
-        <h1 className="mb-12 text-4xl font-bold">Documentation</h1>
+    <div className="min-h-[calc(100dvh-4rem)]">
+      <div className="mx-auto max-w-7xl px-6 py-12">
+        <div className="mb-12">
+          <h1 className="mb-4 text-3xl font-bold text-text-primary">Documentation</h1>
+          <p className="text-lg text-text-secondary">
+            Everything you need to integrate logo-mcp into your AI workflows.
+          </p>
+        </div>
 
-        {/* Section 1: What is logo-mcp */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold text-blue-400">What is logo-mcp?</h2>
-          <div className="rounded-lg border border-zinc-700 bg-zinc-900/30 p-6 text-zinc-300">
-            <p className="mb-4">
-              <strong>logo-mcp</strong> is an open-source Model Context Protocol (MCP) server that
-              enables AI agents like Claude, Cursor, and other AI applications to easily search for
-              and download brand logos as SVG files.
-            </p>
-            <p className="mb-4">
-              Using the Model Context Protocol, your AI agent can ask "Find me the Stripe logo" or
-              "Get the GitHub logo in blue" and the server will instantly return the SVG file.
-            </p>
-            <p>
-              All logos come from the open-source Simple Icons library, which contains over 3,300
-              brand logos in a consistent format.
-            </p>
-          </div>
-        </section>
-
-        {/* Section 2: How to Use with Claude Desktop */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold text-blue-400">How to Use with Claude Desktop</h2>
-          <div className="space-y-4">
-            <p className="text-zinc-300">
-              Follow these steps to add logo-mcp to Claude Desktop on your machine:
-            </p>
-
-            <div className="rounded-lg border border-zinc-700 bg-zinc-900/30 p-6">
-              <h3 className="mb-3 font-semibold text-cyan-400">Step 1: Find Your Config File</h3>
-              <p className="mb-3 text-zinc-300">Open the Claude Desktop config file:</p>
-              <div className="space-y-2 text-sm text-zinc-400">
-                <p>
-                  <strong>macOS:</strong>
-                  <br />
-                  <code className="block rounded bg-black px-3 py-2">
-                    ~/Library/Application Support/Claude/claude_desktop_config.json
-                  </code>
+        <div className="grid gap-12 lg:grid-cols-4">
+          <nav className="lg:col-span-1">
+            <div className="sticky top-24">
+              <h2 className="mb-4 text-sm font-semibold text-text-primary uppercase tracking-wider">Contents</h2>
+              <ul className="space-y-2">
+                {DOCS_SECTIONS.map((section) => (
+                  <li key={section.id}>
+                    <a
+                      href={`#${section.id}`}
+                      className="block rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-surface hover:text-text-primary"
+                    >
+                      {section.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 rounded-xl border border-border bg-surface p-4">
+                <h3 className="mb-2 text-sm font-semibold text-text-primary">Need help?</h3>
+                <p className="mb-4 text-sm text-text-secondary">
+                  Open an issue on GitHub for bugs or feature requests.
                 </p>
-                <p>
-                  <strong>Windows:</strong>
-                  <br />
-                  <code className="block rounded bg-black px-3 py-2">
-                    %APPDATA%\Claude\claude_desktop_config.json
-                  </code>
-                </p>
+                <a
+                  href="https://github.com/sdotdev/logo-mcp/issues"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-accent hover:underline"
+                >
+                  GitHub Issues
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
               </div>
             </div>
+          </nav>
 
-            <div className="rounded-lg border border-zinc-700 bg-zinc-900/30 p-6">
-              <h3 className="mb-3 font-semibold text-cyan-400">Step 2: Add logo-mcp Server</h3>
-              <p className="mb-3 text-zinc-300">
-                Add the following to your config file under the <code className="text-blue-400">mcpServers</code> section:
-              </p>
-              <pre className="overflow-x-auto rounded bg-black p-4 text-sm text-green-400">
-                {`{
+          <div className="lg:col-span-3 space-y-16">
+            <section id="overview">
+              <h2 className="mb-6 text-2xl font-bold text-text-primary">What is logo-mcp?</h2>
+              <div className="rounded-xl border border-border bg-surface p-6">
+                <p className="mb-4 text-text-secondary">
+                  <span className="text-text-primary font-weight-semibold">logo-mcp</span> is an open-source Model Context Protocol (MCP) server that enables AI agents like Claude, Cursor, and other AI applications to easily search for and download brand logos as SVG files.
+                </p>
+                <p className="mb-4 text-text-secondary">
+                  Using the Model Context Protocol, your AI agent can ask &quot;Find me the Stripe logo&quot; or &quot;Get the GitHub logo in blue&quot; and the server will instantly return the SVG file.
+                </p>
+                <p className="text-text-secondary">
+                  All logos come from the open-source Simple Icons library, which contains over <span className="text-accent font-weight-semibold">3,300 brand logos</span> in a consistent format.
+                </p>
+              </div>
+            </section>
+
+            <section id="setup">
+              <h2 className="mb-6 text-2xl font-bold text-text-primary">Setup with Claude Desktop</h2>
+              <div className="space-y-6">
+                <div className="rounded-xl border border-border bg-surface p-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/20 text-accent font-weight-semibold">1</span>
+                    <h3 className="text-lg font-semibold text-text-primary">Find Your Config File</h3>
+                  </div>
+                  <p className="mb-4 text-text-secondary">Open the Claude Desktop config file:</p>
+                  <div className="space-y-3 text-sm">
+                    <div className="rounded-lg bg-background p-4">
+                      <p className="mb-1 text-text-muted">macOS</p>
+                      <code className="font-mono text-text-secondary">~/Library/Application Support/Claude/claude_desktop_config.json</code>
+                    </div>
+                    <div className="rounded-lg bg-background p-4">
+                      <p className="mb-1 text-text-muted">Windows</p>
+                      <code className="font-mono text-text-secondary">%APPDATA%\Claude\claude_desktop_config.json</code>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-border bg-surface p-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/20 text-accent font-weight-semibold">2</span>
+                    <h3 className="text-lg font-semibold text-text-primary">Add logo-mcp Server</h3>
+                  </div>
+                  <p className="mb-4 text-text-secondary">
+                    Add the following to your config file under the <code className="text-accent">mcpServers</code> section:
+                  </p>
+                  <pre className="overflow-x-auto rounded-lg bg-background p-4 text-sm">
+                    <code className="text-text-secondary">{`{
   "mcpServers": {
     "logo-mcp": {
       "url": "http://localhost:3000/api/mcp"
     }
   }
-}`}
-              </pre>
-              <p className="mt-3 text-sm text-zinc-400">
-                <strong>For local development:</strong> Use{" "}
-                <code className="text-blue-400">http://localhost:3000/api/mcp</code>
-              </p>
-            </div>
+}`}</code>
+                  </pre>
+                  <p className="mt-4 text-sm text-text-muted">
+                    For production, replace the URL with your deployed endpoint (e.g., https://logo-mcp.vercel.app/api/mcp)
+                  </p>
+                </div>
 
-            <div className="rounded-lg border border-zinc-700 bg-zinc-900/30 p-6">
-              <h3 className="mb-3 font-semibold text-cyan-400">Step 3: Restart Claude Desktop</h3>
-              <p className="text-zinc-300">
-                Restart Claude Desktop completely. When it reopens, logo-mcp should appear in the
-                Tools list in the bottom right.
-              </p>
-            </div>
+                <div className="rounded-xl border border-border bg-surface p-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/20 text-accent font-weight-semibold">3</span>
+                    <h3 className="text-lg font-semibold text-text-primary">Restart Claude</h3>
+                  </div>
+                  <p className="text-text-secondary">
+                    Restart Claude Desktop completely. When it reopens, logo-mcp should appear in the Tools list.
+                  </p>
+                </div>
 
-            <div className="rounded-lg border border-zinc-700 bg-zinc-900/30 p-6">
-              <h3 className="mb-3 font-semibold text-cyan-400">Step 4: Start Using</h3>
-              <p className="text-zinc-300">
-                Now you can ask Claude: "Find me the Stripe logo" or "Get the GitHub logo as SVG"
-                and Claude will use the logo-mcp tools automatically.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: How to Use with Claude.ai */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold text-blue-400">How to Use with Claude.ai</h2>
-          <div className="rounded-lg border border-zinc-700 bg-zinc-900/30 p-6 text-zinc-300">
-            <p className="mb-4">
-              Claude.ai support for custom MCP servers is coming soon. For now, use Claude Desktop
-              for the best experience with logo-mcp.
-            </p>
-          </div>
-        </section>
-
-        {/* Section 4: Available Tools */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold text-blue-400">Available Tools</h2>
-
-          <div className="space-y-6">
-            {/* search_logo */}
-            <div className="rounded-lg border border-zinc-700 bg-zinc-900/30 p-6">
-              <h3 className="mb-3 font-semibold text-cyan-400">search_logo</h3>
-              <p className="mb-3 text-sm text-zinc-300">
-                Search for brand logos by name. Returns matching logos with slugs, titles, and
-                brand colors.
-              </p>
-              <div className="space-y-2 text-sm">
-                <p className="font-semibold text-zinc-300">Parameters:</p>
-                <ul className="list-inside list-disc space-y-1 text-zinc-400">
-                  <li>
-                    <code className="text-blue-400">query</code> (string): Brand name to search
-                  </li>
-                  <li>
-                    <code className="text-blue-400">limit</code> (number, optional): Max results
-                    (default: 10, max: 50)
-                  </li>
-                </ul>
-                <p className="mt-3 font-semibold text-zinc-300">Example usage:</p>
-                <code className="block rounded bg-black px-3 py-2 text-green-400">
-                  search_logo(query="stripe", limit=5)
-                </code>
+                <div className="rounded-xl border border-border bg-surface p-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/20 text-accent font-weight-semibold">4</span>
+                    <h3 className="text-lg font-semibold text-text-primary">Start Using</h3>
+                  </div>
+                  <p className="text-text-secondary">
+                    Now you can ask Claude: &quot;Find me the Stripe logo&quot; or &quot;Get the GitHub logo as SVG&quot; and Claude will use the logo-mcp tools automatically.
+                  </p>
+                </div>
               </div>
-            </div>
+            </section>
 
-            {/* get_logo_svg */}
-            <div className="rounded-lg border border-zinc-700 bg-zinc-900/30 p-6">
-              <h3 className="mb-3 font-semibold text-cyan-400">get_logo_svg</h3>
-              <p className="mb-3 text-sm text-zinc-300">
-                Retrieve the raw SVG markup for a brand logo. Returns SVG string ready to embed in
-                HTML/CSS.
-              </p>
-              <div className="space-y-2 text-sm">
-                <p className="font-semibold text-zinc-300">Parameters:</p>
-                <ul className="list-inside list-disc space-y-1 text-zinc-400">
-                  <li>
-                    <code className="text-blue-400">slug</code> (string): Simple Icons slug
-                    (e.g., 'github', 'stripe')
-                  </li>
-                  <li>
-                    <code className="text-blue-400">color</code> (string, optional): Hex color code
-                    (e.g., 'FF0000' or '#FF0000')
-                  </li>
-                </ul>
-                <p className="mt-3 font-semibold text-zinc-300">Example usage:</p>
-                <code className="block rounded bg-black px-3 py-2 text-green-400">
-                  get_logo_svg(slug="github") # Returns GitHub logo SVG
-                  <br />
-                  get_logo_svg(slug="stripe", color="#FF0000") # Returns red Stripe logo
-                </code>
+            <section id="tools">
+              <h2 className="mb-6 text-2xl font-bold text-text-primary">Available MCP Tools</h2>
+              <div className="space-y-6">
+                <div className="rounded-xl border border-border bg-surface overflow-hidden">
+                  <div className="border-b border-border bg-surface-elevated px-6 py-4">
+                    <h3 className="font-mono text-lg font-semibold text-accent">search_logo</h3>
+                  </div>
+                  <div className="p-6">
+                    <p className="mb-6 text-text-secondary">
+                      Search for brand logos by name. Returns matching logos with slugs, titles, and brand colors.
+                    </p>
+                    <div className="mb-6">
+                      <h4 className="mb-3 text-sm font-semibold text-text-primary">Parameters</h4>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead>
+                            <tr className="border-b border-border">
+                              <th className="pb-2 text-left text-text-secondary">Name</th>
+                              <th className="pb-2 text-left text-text-secondary">Type</th>
+                              <th className="pb-2 text-left text-text-secondary">Required</th>
+                              <th className="pb-2 text-left text-text-secondary">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-b border-border-subtle">
+                              <td className="py-2 font-mono text-accent">query</td>
+                              <td className="py-2 text-text-muted">string</td>
+                              <td className="py-2 text-error">Yes</td>
+                              <td className="py-2 text-text-secondary">Brand name to search</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 font-mono text-accent">limit</td>
+                              <td className="py-2 text-text-muted">number</td>
+                              <td className="py-2 text-text-muted">No</td>
+                              <td className="py-2 text-text-secondary">Max results (default: 10, max: 50)</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="mb-3 text-sm font-semibold text-text-primary">Example</h4>
+                      <pre className="overflow-x-auto rounded-lg bg-background p-4 text-sm">
+                        <code className="text-success">search_logo(query=&quot;stripe&quot;, limit=5)</code>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-border bg-surface overflow-hidden">
+                  <div className="border-b border-border bg-surface-elevated px-6 py-4">
+                    <h3 className="font-mono text-lg font-semibold text-accent">get_logo_svg</h3>
+                  </div>
+                  <div className="p-6">
+                    <p className="mb-6 text-text-secondary">
+                      Retrieve the raw SVG markup for a brand logo. Returns SVG string ready to embed in HTML/CSS.
+                    </p>
+                    <div className="mb-6">
+                      <h4 className="mb-3 text-sm font-semibold text-text-primary">Parameters</h4>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead>
+                            <tr className="border-b border-border">
+                              <th className="pb-2 text-left text-text-secondary">Name</th>
+                              <th className="pb-2 text-left text-text-secondary">Type</th>
+                              <th className="pb-2 text-left text-text-secondary">Required</th>
+                              <th className="pb-2 text-left text-text-secondary">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-b border-border-subtle">
+                              <td className="py-2 font-mono text-accent">slug</td>
+                              <td className="py-2 text-text-muted">string</td>
+                              <td className="py-2 text-error">Yes</td>
+                              <td className="py-2 text-text-secondary">Simple Icons slug (e.g., &apos;github&apos;, &apos;stripe&apos;)</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 font-mono text-accent">color</td>
+                              <td className="py-2 text-text-muted">string</td>
+                              <td className="py-2 text-text-muted">No</td>
+                              <td className="py-2 text-text-secondary">Hex color code (e.g., &apos;FF0000&apos; or &apos;#FF0000&apos;)</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="mb-3 text-sm font-semibold text-text-primary">Examples</h4>
+                      <pre className="overflow-x-auto rounded-lg bg-background p-4 text-sm">
+                        <code className="text-success">get_logo_svg(slug=&quot;github&quot;)
+get_logo_svg(slug=&quot;stripe&quot;, color=&quot;#FF0000&quot;)</code>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        {/* Section 5: How to Deploy */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold text-blue-400">How to Deploy</h2>
-          <div className="rounded-lg border border-zinc-700 bg-zinc-900/30 p-6 text-zinc-300">
-            <p className="mb-4">logo-mcp can be deployed to Vercel for production use.</p>
-            <ol className="list-inside list-decimal space-y-2 text-sm">
-              <li>Push your code to GitHub</li>
-              <li>Connect your repository to Vercel</li>
-              <li>Deploy - Vercel will automatically build and deploy the MCP server</li>
-              <li>
-                Update your Claude Desktop config to use your Vercel URL instead of
-                localhost
-              </li>
-            </ol>
-            <p className="mt-4 text-sm">
-              For detailed deployment instructions, see{" "}
-              <code className="text-blue-400">CLAUDE.md</code> in the repository.
-            </p>
-          </div>
-        </section>
+            <section id="deploy">
+              <h2 className="mb-6 text-2xl font-bold text-text-primary">Deploy to Production</h2>
+              <div className="rounded-xl border border-border bg-surface p-6">
+                <p className="mb-6 text-text-secondary">
+                  logo-mcp can be deployed to Vercel for production use.
+                </p>
+                <ol className="list-decimal list-inside space-y-3 text-text-secondary">
+                  <li>Push your code to a GitHub repository</li>
+                  <li>Connect your repository to Vercel</li>
+                  <li>Vercel will automatically build and deploy the MCP server</li>
+                  <li>Update your Claude Desktop config to use your Vercel URL instead of localhost</li>
+                </ol>
+                <div className="mt-6 rounded-lg bg-accent/10 p-4">
+                  <p className="text-sm text-text-secondary">
+                    <span className="font-weight-semibold text-accent">Tip:</span> Check the deployment URL works by visiting it in your browser. You should see a JSON response with the MCP server info.
+                  </p>
+                </div>
+              </div>
+            </section>
 
-        {/* Section 6: Legal */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold text-blue-400">Legal & Licensing</h2>
-          <div className="rounded-lg border border-zinc-700 bg-zinc-900/30 p-6 text-zinc-300">
-            <div className="space-y-3 text-sm">
-              <p>
-                <strong className="text-cyan-400">Simple Icons License:</strong> All brand logos are
-                provided under the CC0 1.0 license (public domain). You can use them freely without
-                attribution.
-              </p>
-              <p>
-                <strong className="text-cyan-400">Brand Trademarks:</strong> The brand logos and
-                trademarks are property of their respective owners. Users are responsible for
-                compliance with each brand's trademark guidelines.
-              </p>
-              <p>
-                <strong className="text-cyan-400">More Info:</strong> Visit{" "}
-                <a
-                  href="https://simpleicons.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300"
-                >
-                  simpleicons.org
-                </a>{" "}
-                for more information.
-              </p>
-            </div>
+            <section id="legal">
+              <h2 className="mb-6 text-2xl font-bold text-text-primary">Legal & Licensing</h2>
+              <div className="rounded-xl border border-border bg-surface p-6">
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="mb-2 text-lg font-semibold text-text-primary">Simple Icons License</h3>
+                    <p className="text-text-secondary">
+                      All brand logos are provided under the <span className="text-accent">CC0 1.0</span> license (public domain). You can use them freely without attribution.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="mb-2 text-lg font-semibold text-text-primary">Brand Trademarks</h3>
+                    <p className="text-text-secondary">
+                      The brand logos and trademarks are property of their respective owners. Users are responsible for compliance with each brand&apos;s trademark guidelines.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="mb-2 text-lg font-semibold text-text-primary">More Information</h3>
+                    <a
+                      href="https://simpleicons.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-accent hover:underline"
+                    >
+                      Visit simpleicons.org
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-        </section>
-
-        {/* Footer */}
-        <div className="border-t border-zinc-700 pt-8">
-          <p className="text-sm text-zinc-500">
-            Have questions? Open an issue on{" "}
-            <a
-              href="https://github.com/sdotdev/logo-mcp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300"
-            >
-              GitHub
-            </a>
-          </p>
         </div>
       </div>
     </div>
