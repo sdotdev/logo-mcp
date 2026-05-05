@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import { NavLink } from "./components/nav-link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -94,18 +95,36 @@ export default function RootLayout({
         <main id="main-content" className="pt-16">
           {children}
         </main>
+
+        <footer className="border-t border-border py-8">
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 sm:flex-row">
+            <p className="text-sm text-text-muted">
+              Logos from{" "}
+              <a
+                href="https://simpleicons.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-secondary transition-colors hover:text-text-primary"
+              >
+                Simple Icons
+              </a>{" "}
+              · CC0 1.0 license · brand trademarks belong to their respective owners
+            </p>
+            <nav className="flex items-center gap-6 text-sm text-text-muted" aria-label="Footer">
+              <a
+                href="https://github.com/sdotdev/logo-mcp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-text-secondary"
+              >
+                GitHub
+              </a>
+              <Link href="/docs" className="transition-colors hover:text-text-secondary">Docs</Link>
+              <Link href="/api-reference" className="transition-colors hover:text-text-secondary">API</Link>
+            </nav>
+          </div>
+        </footer>
       </body>
     </html>
-  );
-}
-
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="relative px-3 py-2 text-sm font-weight-medium text-text-secondary transition-colors hover:text-text-primary rounded-md hover:bg-surface-elevated"
-    >
-      {children}
-    </Link>
   );
 }

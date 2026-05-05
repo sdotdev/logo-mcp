@@ -105,7 +105,7 @@ export default function ApiPage() {
                   
                   {endpoint.params && (
                     <div className="mb-6">
-                      <h3 className="mb-3 text-sm font-semibold text-text-primary uppercase tracking-wider">Parameters</h3>
+                      <h3 className="mb-3 text-sm font-semibold text-text-primary">Parameters</h3>
                       <div className="overflow-x-auto">
                         <table className="w-full text-sm">
                           <thead>
@@ -138,7 +138,7 @@ export default function ApiPage() {
                   )}
 
                   <div>
-                    <h3 className="mb-3 text-sm font-semibold text-text-primary uppercase tracking-wider">Response</h3>
+                    <h3 className="mb-3 text-sm font-semibold text-text-primary">Response</h3>
                     <pre className="overflow-x-auto rounded-lg bg-background p-4 text-sm">
                       <code className="text-text-secondary">{endpoint.response.example}</code>
                     </pre>
@@ -175,7 +175,7 @@ export default function ApiPage() {
                   <p className="mb-6 text-text-secondary">{tool.description}</p>
                   
                   <div className="mb-6">
-                    <h3 className="mb-3 text-sm font-semibold text-text-primary uppercase tracking-wider">Parameters</h3>
+                    <h3 className="mb-3 text-sm font-semibold text-text-primary">Parameters</h3>
                     <div className="overflow-x-auto">
                       <table className="w-full text-sm">
                         <thead>
@@ -207,7 +207,7 @@ export default function ApiPage() {
                   </div>
 
                   <div>
-                    <h3 className="mb-3 text-sm font-semibold text-text-primary uppercase tracking-wider">Example</h3>
+                    <h3 className="mb-3 text-sm font-semibold text-text-primary">Example</h3>
                     <pre className="overflow-x-auto rounded-lg bg-background p-4 text-sm">
                       <code className="text-success">{tool.example}</code>
                     </pre>

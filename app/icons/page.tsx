@@ -224,7 +224,7 @@ function BatchModal({
             <>
               {foundResults.length > 0 && (
                 <div className="mb-6">
-                  <h3 className="mb-3 text-sm font-semibold text-text-secondary uppercase tracking-wider">
+                  <h3 className="mb-3 text-sm font-semibold text-text-secondary">
                     Found ({foundResults.length})
                   </h3>
                   <div className="space-y-2">
@@ -279,7 +279,7 @@ function BatchModal({
 
               {notFound.length > 0 && (
                 <div>
-                  <h3 className="mb-3 text-sm font-semibold text-text-secondary uppercase tracking-wider">
+                  <h3 className="mb-3 text-sm font-semibold text-text-secondary">
                     Not Found ({notFound.length})
                   </h3>
                   <div className="flex flex-wrap gap-2">

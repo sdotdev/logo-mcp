@@ -22,7 +22,7 @@ export default function DocsPage() {
         <div className="grid gap-12 lg:grid-cols-4">
           <nav className="lg:col-span-1">
             <div className="sticky top-24">
-              <h2 className="mb-4 text-sm font-semibold text-text-primary uppercase tracking-wider">Contents</h2>
+              <h2 className="mb-4 text-sm font-semibold text-text-primary">Contents</h2>
               <ul className="space-y-2">
                 {DOCS_SECTIONS.map((section) => (
                   <li key={section.id}>

@@ -26,7 +26,7 @@ export default function Home() {
             3,300+ Brand Logos Available
           </div>
           
-          <h1 className="mb-6 text-4xl font-bold tracking-tight text-text-primary md:text-5xl lg:text-6xl opacity-0 animate-slide-up stagger-1">
+          <h1 className="mb-6 text-4xl font-bold tracking-tight text-text-primary text-balance md:text-5xl lg:text-6xl opacity-0 animate-slide-up stagger-1">
             Brand logos for your{" "}
             <span className="text-accent">&quot;AI agents&quot;</span>
           </h1>
@@ -62,12 +62,12 @@ export default function Home() {
 
         <div className="mt-20 grid grid-cols-3 gap-8 border-t border-border pt-12 opacity-0 animate-slide-up stagger-4">
           {[
-            { value: "3,300+", label: "Brand Logos" },
-            { value: "100%", label: "SVG Format" },
-            { value: "Free", label: "Open Source" },
+            { value: "3,300+", label: "brand logos" },
+            { value: "SVG", label: "vector format" },
+            { value: "CC0 1.0", label: "licensed" },
           ].map((stat, i) => (
             <div key={i} className="text-center">
-              <div className="text-2xl font-bold text-text-primary md:text-3xl font-weight-semibold">
+              <div className="text-2xl font-semibold text-text-primary md:text-3xl tabular-nums">
                 {stat.value}
               </div>
               <div className="mt-1 text-sm text-text-muted">{stat.label}</div>

@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "bin": {
+    "logo-mcp": "dist/stdio-server.js"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
     "@vercel/mcp-adapter": "^0.3.2",
