@@ -248,7 +248,7 @@ export default function ApiPage() {
                 <code className="text-text-secondary">{`{
   "mcpServers": {
     "logo-mcp": {
-      "url": "https://your-deployment.com/api/mcp"
+      "url": "https://logo-mcp.vercel.app/api/mcp"
     }
   }
 }`}</code>
@@ -273,7 +273,7 @@ export default function ApiPage() {
             Documentation
           </Link>
           <Link
-            href="/browse"
+            href="/icons"
             className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-text-primary"
           >
             Browse Icons

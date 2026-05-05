@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export function GET() {
-  return NextResponse.redirect(new URL("/icons", "http://localhost:3000"));
+export function GET(request: NextRequest) {
+  return NextResponse.redirect(new URL("/icons", request.url));
 }
 
 export const dynamic = "force-dynamic";

@@ -43,7 +43,7 @@ export default function NotFound() {
             Go Home
           </Link>
           <Link
-            href="/browse"
+            href="/icons"
             className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-6 py-3 text-sm font-weight-semibold text-text-primary transition-all hover:bg-surface-elevated hover-lift"
           >
             Browse Icons
@@ -53,7 +53,7 @@ export default function NotFound() {
         <div className="mt-16 border-t border-border pt-8">
           <p className="mb-4 text-sm text-text-muted">Quick links</p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <Link href="/search" className="text-text-secondary hover:text-accent transition-colors">
+            <Link href="/icons" className="text-text-secondary hover:text-accent transition-colors">
               Search
             </Link>
             <Link href="/docs" className="text-text-secondary hover:text-accent transition-colors">

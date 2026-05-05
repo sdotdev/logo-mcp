@@ -25,7 +25,7 @@ Add to `claude_desktop_config.json`:
 {
   "mcpServers": {
     "logo-mcp": {
-      "url": "https://your-deployment.com/api/mcp"
+      "url": "https://logo-mcp.vercel.app/api/mcp"
     }
   }
 }
@@ -34,7 +34,7 @@ Add to `claude_desktop_config.json`:
 Or via CLI:
 
 ```bash
-claude mcp add --transport http logo-mcp https://your-deployment.com/api/mcp
+claude mcp add --transport http logo-mcp https://logo-mcp.vercel.app/api/mcp
 ```
 
 ### Local development

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   const localUrl = "http://localhost:3000";
-  const productionUrl = "https://your-deployment.com";
+  const productionUrl = "https://logo-mcp.vercel.app";
 
   return (
     <div className="relative min-h-[calc(100dvh-4rem)] overflow-hidden">
