@@ -23,5 +23,16 @@ export const GET = handleRequest;
 export const POST = handleRequest;
 export const DELETE = handleRequest;
 
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, MCP-Session-Id, MCP-Protocol-Version",
+    },
+  });
+}
+
 export const runtime = "nodejs";
 export const maxDuration = 60;
